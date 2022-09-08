@@ -1,0 +1,47 @@
+html * {
+    margin:0;
+    padding:0;
+}
+.tittle {
+    /* align-content: center; */
+    color: azure;
+    font-size: 40px;
+    /* background-color: brown; */
+    font-weight: bold;
+    margin-right: 800px;
+}
+.header {
+    background-image: url('https://fondosmil.com/fondo/24546.jpg');
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* background-size: cover; */
+
+}
+.navbar-brand {
+    margin-left: 490px;
+}
+.imagenes {
+    display: flex;
+    justify-content: space-around;
+    /* background-color: aqua; */
+    padding: 20px;
+    border-color: black;
+    border-width: 50px;
+}
+.main {
+    display: grid;
+    justify-content: center;
+}
+#registro {
+    background-color: aqua;
+}
+.bromas {
+    background-image: url('./img/estudiantes.jpg');
+    width: 500px;
+    height: 300px; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 3em 0 3em;
+    box-shadow: 5px 5px 5px black , -5px -5px 5px black;
+
+}
