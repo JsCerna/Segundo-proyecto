@@ -1,29 +1,107 @@
-const btn_sal = document.querySelector("#saludo");
-btn_sal.addEventListener("click", event => saludo());
-
-const btn_reg = document.querySelector("#registrar");
-btn_reg.addEventListener("click", event => crear());
-
-
-
-
-
-
-function saludo (){
-    const inputNombre = document.getElementById("nombre");
-    const spanNom = document.getElementById("nom");
-
-    spanNom.innerHTML = inputNombre.value;
+function leer(key){
+    return JSON.parse(window.localStorage.getItem(key)) || [];
+}
+function guardar(key, data){
+    window.localStorage.setItem(key, JSON.stringify(data));
 }
 
-function crear(){
-    const etiquetaP = document.createElement("p");
-    const inputNombre = document.getElementById("nombre");
-    const valorParaEtiquetaP = document.createTextNode(inputNombre.value);
+let idPersona = document.querySelector("#id");
+let nombre = document.querySelector("#nombre");
+let apellido = document.querySelector("#apellido");
+let nacionalidad = document.querySelector("#nacionalidad");
+let edad = document.querySelector("#edad");
 
-    etiquetaP.appendChild(valorParaEtiquetaP);
+function addPersona(e){
+    let personas = leer("personas");
 
-    const divRegistro = document.getElementById("registro");
+    if(idPersona.value == 0 || idPersona.value == null){
+        const persona = {
+            id: (personas.length + 1),
+            name : nombre.value,
+            lastName : apellido.value,
+            nationality : nacionalidad.value,
+            age : edad.value,
+        }
+        personas.push(persona);
+    } else {
+        let pos = personas.findIndex(persona => persona.id == idPersona.value);
+        if (pos >= 0){
+            personas[pos].name = nombre.value;
+            personas[pos].lastName = apellido.value;
+            personas[pos].nationality = nacionalidad.value;
+            personas[pos].age = edad.value;
+        }
+    }
 
-    divRegistro.appendChild(etiquetaP);
+    guardar("personas", personas);
+    limpiarForm();
+    mostrar();
 }
+function limpiarForm(){
+    idPersona.value = 0;
+    nombre.value = '';
+    apellido.value = '';
+    nacionalidad.value = '';
+    edad.value = null;
+
+}
+
+function mostrar(){
+    let tbody = document.querySelector("#personajes");
+    tbody.innerHTML = "";
+    let personas = leer("personas");
+
+    personas.forEach(element => {
+        tbody.innerHTML += `<tr>
+        <th>${element.id}</th>
+        <td>${element.name}</td>
+        <td>${element.lastName}</td>
+        <td>${element.nationality}</td>
+        <td>${element.age}</td>
+        <td>
+            <button type="button" id="edit${element.id}" class="btn btn-outline-warning">edit</button>
+            <button type="button" id="borrar${element.id}" class="btn btn-outline-danger">borrar</button>
+        </td>
+        </tr>
+        `;
+    });
+}
+
+function leerUno(id){
+    let personas = leer("personas");
+    let persona = personas[id - 1];
+
+    idPersona.value = persona.id;
+    nombre.value = persona.name;
+    apellido.value = persona.lastName;
+    nacionalidad.value = persona.nationality;
+    edad.value = persona.age;
+}
+
+function borrarPersona(id){
+    let personas = leer("personas");
+    let filtrado = personas.filter(persona => persona.id != id);
+    guardar("personas", filtrado);
+    mostrar();
+}
+
+mostrar();
+
+let btnAdd = document.querySelector("#registrar");
+btnAdd.addEventListener("click", (e) => {
+    addPersona(e);
+});
+
+let editList = document.querySelectorAll(".btn-outline-warning");
+editList.forEach(element => {
+    element.addEventListener('click', (e) => {
+        leerUno(element.id.match(/(\d+)/)[0]);
+    })
+});
+
+let borrarList = document.querySelectorAll(".btn-outline-danger");
+borrarList.forEach(element => {
+    element.addEventListener('click', (e) => {
+        borrarPersona(element.id.match(/(\d+)/)[0]);
+    })
+});

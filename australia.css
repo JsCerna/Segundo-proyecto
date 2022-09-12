@@ -2,6 +2,7 @@ html * {
     margin:0;
     padding:0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 .tittle {
     /* align-content: center; */
     color: azure;
@@ -9,6 +10,9 @@ html * {
     /* background-color: brown; */
     font-weight: bold;
     margin-right: 800px;
+}
+.main h1 {
+    justify-content: center;
 }
 .header {
     background-image: url('https://fondosmil.com/fondo/24546.jpg');
@@ -31,6 +35,7 @@ html * {
 .main {
     display: grid;
     justify-content: center;
+    padding: 10px 10px 10px 1px;
 }
 #registro {
     background-color: aqua;
@@ -44,4 +49,14 @@ html * {
     border-radius: 0 3em 0 3em;
     box-shadow: 5px 5px 5px black , -5px -5px 5px black;
 
+}
+.table {
+    background-color: rgb(104, 80, 2);
+
+}
+.planilla {
+    background-color: aliceblue;
+}
+.tabla {
+    padding: 10px 10px 10px 1px;
 }
