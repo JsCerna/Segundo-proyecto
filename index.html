@@ -13,62 +13,67 @@
 </head>
 
 <body class="header">
-    <div>
-        <nav class="navbar" style="background-color: black;">
-            <img class="navbar-brand" src="./img/580b585b2edbce24c47b27de.png" width="100">
-            <h1 class="tittle"> Australian Experience</h1>
-          </nav>
-    </div>
-  <header class="">
+    <nav class="navbar bg-transparent">
+        <div class="container-fluid">
+          <a class="navbar-brand">
+            <img src="./img/580b585b2edbce24c47b27de.png" alt="Logo" width="120" height="80" class="d-inline-block">
+            AUSTRALIAN EXPERIENCE
+          </a>
+        </div>
+      </nav>
+
+  <header class="heder">
 
         <div class="imagenes">
-            <img src="./img/leer.png">
+            <img class="bromas" src="./img/leer.png" width="350px">
             <div>
-                <img src="./img/surfaust.png"  >
+                <!-- <img src="./img/surfaust.png"  >
             </div>
             <div> 
                 <img src="./img/estudiantes.png"  >
-            </div>
+            </div> -->
 
   </header>
   <main class="main">
     <div>
-        <h1>Bienvenido</h1>
+        <h1>¡Estudia y trabaja en Australia!</h1>
+        <h4>Llena el formulario y recibirás la información por correo.</h4>
     </div>
     <form>
     <input type="hidden" id="id" name="id" value="0">
     <input type="text" id="nombre" class="form-control w-100" placeholder="Nombre">
     <input type="text" id="apellido" class="form-control w-100" placeholder="Apellido">
+    <input type="text" id="correo" class="form-control w-100" placeholder="Ejemplo@gmail.com">
     <input type="text" id="nacionalidad" class="form-control w-100" placeholder="Nacionalidad">
     <input type="number" id="edad" class="form-control w-100" placeholder="17">
-    </form>
-    <button id="registrar" type="button">R E G I S T R A R</button>
-    </form>    <div class="tabla">
+    <!-- </form> -->
+    <div class="reg">
+    <button class="butone" id="registrar" type="button">REGISTRAR</button>
+    </div>
+    </form>    
+    <div class="tabla">
         <table class="planilla">
             <thead class="table">
                 <th class="col-1">#</th>
                 <th class="col-3">Nombre</th>
                 <th class="col-3">Apellido</th>
-                <th class="col-3">Nacionalidad</th>
-                <th class="col-2">Edad</th>
-                <th class="col-3">Edit/Borrar</th>
+                <th class="col-3">Correo</th>
+                <th class="col-3">Nación</th>
+                <th class="col-3">Edad</th>
+                <th class="col-3">Ed/Del</th>
             </thead>
             <tbody id="personajes">
-                <th>1</th>
-                <th>Cotele</th>
-                <th>Oyep</th>
-                <th>Chilena</th>
-                <th>41</th>
-                <th>Editar  borrar</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 
-
-
-
             </tbody>
 
         </table>
-
-
     </div>
 
   </main>

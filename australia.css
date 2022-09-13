@@ -3,60 +3,100 @@ html * {
     padding:0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-.tittle {
-    /* align-content: center; */
-    color: azure;
-    font-size: 40px;
-    /* background-color: brown; */
-    font-weight: bold;
-    margin-right: 800px;
-}
+
 .main h1 {
     justify-content: center;
+    font-size: bold;
 }
+.main h4{
+    font-size: bold;
+}
+
 .header {
     background-image: url('https://fondosmil.com/fondo/24546.jpg');
     background-repeat: no-repeat;
     min-height: 100vh;
-    /* background-size: cover; */
+    background-size: cover;
+
 
 }
-.navbar-brand {
-    margin-left: 490px;
+.header a {
+    background-color: rgb(227, 244, 250);
+    font-size: bold;
+    padding-right: 15px;
 }
+/* .navbar-brand {
+    margin-left: 490px;
+} */
 .imagenes {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    justify-content: center;
+    margin-top: 65px;
     /* background-color: aqua; */
-    padding: 20px;
-    border-color: black;
-    border-width: 50px;
+    /* padding: 20px; */
+    /* border-color: black; */
+    /* border-width: 50px; */
+}
+.reg {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.butone{
+    font-size: bold;
+    padding: 5px;
+    background-color:azure;
 }
 .main {
     display: grid;
-    justify-content: center;
-    padding: 10px 10px 10px 1px;
+    justify-content: space-around;
+    /* padding: 10px 10px 10px 1px; */
 }
 #registro {
     background-color: aqua;
 }
-.bromas {
-    background-image: url('./img/estudiantes.jpg');
-    width: 500px;
-    height: 300px; 
+/* .bromas {
+    background-image: url('./img/leer.png');
+    width: 400px;
+    height: 250px; 
     background-size: cover;
     background-position: center;
     border-radius: 0 3em 0 3em;
     box-shadow: 5px 5px 5px black , -5px -5px 5px black;
-
+} */
+.planilla{
+    background-color: rgb(195, 214, 216);
 }
 .table {
-    background-color: rgb(104, 80, 2);
+    background-color: rgb(133, 72, 3)  ;
+}
+@media screen and (max-width: 1100px){
+    .imagenes{
+        display: grid;
+        justify-content: center;
+    }
+    .header{
+        background-position: center;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .header a{
+        padding-right: 5px;
+    }
+    .planilla{
+        font-size: 13px;
+        padding: 5px;
+    }
+    .table{
+        font-size: 13px;
+        padding: 5px;
+    }
+    .main{
+        font-size: 13px;
+        padding: 5px;
+    }
+}   
 
-}
-.planilla {
-    background-color: aliceblue;
-}
-.tabla {
-    padding: 10px 10px 10px 1px;
+@media screen and (max-width: 1880px){
+    html * {margin: 0; padding: 0;}
 }

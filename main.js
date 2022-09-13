@@ -1,6 +1,8 @@
+//Funcion leer, reciba una llave y escribe arreglos dentro del local storage.
 function leer(key){
     return JSON.parse(window.localStorage.getItem(key)) || [];
 }
+//funcion guardar, 
 function guardar(key, data){
     window.localStorage.setItem(key, JSON.stringify(data));
 }
@@ -8,6 +10,7 @@ function guardar(key, data){
 let idPersona = document.querySelector("#id");
 let nombre = document.querySelector("#nombre");
 let apellido = document.querySelector("#apellido");
+let correo = document.querySelector("#correo");
 let nacionalidad = document.querySelector("#nacionalidad");
 let edad = document.querySelector("#edad");
 
@@ -19,6 +22,7 @@ function addPersona(e){
             id: (personas.length + 1),
             name : nombre.value,
             lastName : apellido.value,
+            email : correo.value,
             nationality : nacionalidad.value,
             age : edad.value,
         }
@@ -28,6 +32,7 @@ function addPersona(e){
         if (pos >= 0){
             personas[pos].name = nombre.value;
             personas[pos].lastName = apellido.value;
+            personas[pos].email = correo.value;
             personas[pos].nationality = nacionalidad.value;
             personas[pos].age = edad.value;
         }
@@ -41,6 +46,7 @@ function limpiarForm(){
     idPersona.value = 0;
     nombre.value = '';
     apellido.value = '';
+    correo.value = '';
     nacionalidad.value = '';
     edad.value = null;
 
@@ -56,6 +62,7 @@ function mostrar(){
         <th>${element.id}</th>
         <td>${element.name}</td>
         <td>${element.lastName}</td>
+        <td>${element.email}</td>
         <td>${element.nationality}</td>
         <td>${element.age}</td>
         <td>
@@ -74,6 +81,7 @@ function leerUno(id){
     idPersona.value = persona.id;
     nombre.value = persona.name;
     apellido.value = persona.lastName;
+    correo.value = persona.email;
     nacionalidad.value = persona.nationality;
     edad.value = persona.age;
 }
