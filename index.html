@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australia Experience</title>
-      <!-- CSS only -->
   <link href="./australia.css" rel="stylesheet">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
-
 <body class="header">
     <nav class="navbar bg-transparent">
         <div class="container-fluid">
@@ -20,20 +17,13 @@
             AUSTRALIAN EXPERIENCE
           </a>
         </div>
-      </nav>
-
+      </nav>     
   <header class="heder">
-
         <div class="imagenes">
             <img class="bromas" src="./img/leer.png" width="350px">
             <div>
-                <!-- <img src="./img/surfaust.png"  >
-            </div>
-            <div> 
-                <img src="./img/estudiantes.png"  >
-            </div> -->
-
   </header>
+
   <main class="main">
     <div>
         <h1>¡Estudia y trabaja en Australia!</h1>
@@ -45,7 +35,7 @@
     <input type="text" id="apellido" class="form-control w-100" placeholder="Apellido">
     <input type="text" id="correo" class="form-control w-100" placeholder="Ejemplo@gmail.com">
     <input type="text" id="nacionalidad" class="form-control w-100" placeholder="Nacionalidad">
-    <input type="number" id="edad" class="form-control w-100" placeholder="17">
+    <input type="number" min="17" max="35" id="edad" class="form-control w-100" placeholder="17">
     <!-- </form> -->
     <div class="reg">
     <button class="butone" id="registrar" type="button">REGISTRAR</button>
@@ -60,7 +50,7 @@
                 <th class="col-3">Correo</th>
                 <th class="col-3">Nación</th>
                 <th class="col-3">Edad</th>
-                <th class="col-3">Ed/Del</th>
+                <th class="col-3"></th>
             </thead>
             <tbody id="personajes">
                 <th></th>
@@ -69,18 +59,14 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
-                
+                <th></th>           
             </tbody>
-
         </table>
     </div>
-
   </main>
 
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="./main.js"></script> 
-
-   <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

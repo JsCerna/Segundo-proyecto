@@ -1,8 +1,7 @@
-//Funcion leer, reciba una llave y escribe arreglos dentro del local storage.
 function leer(key){
     return JSON.parse(window.localStorage.getItem(key)) || [];
 }
-//funcion guardar, 
+ 
 function guardar(key, data){
     window.localStorage.setItem(key, JSON.stringify(data));
 }
@@ -16,17 +15,24 @@ let edad = document.querySelector("#edad");
 
 function addPersona(e){
     let personas = leer("personas");
-
     if(idPersona.value == 0 || idPersona.value == null){
-        const persona = {
-            id: (personas.length + 1),
-            name : nombre.value,
-            lastName : apellido.value,
-            email : correo.value,
-            nationality : nacionalidad.value,
-            age : edad.value,
-        }
-        personas.push(persona);
+        if(nombre.value == "" || apellido.value == "" || correo.value == "" || nacionalidad.value == "" || edad.value == "") {
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'error'
+              )
+        } else {
+            const persona = {
+                id: (personas.length + 1),
+                name : nombre.value,
+                lastName : apellido.value,
+                email : correo.value,
+                nationality : nacionalidad.value,
+                age : edad.value,
+            }
+            personas.push(persona);
+        }     
     } else {
         let pos = personas.findIndex(persona => persona.id == idPersona.value);
         if (pos >= 0){
@@ -37,11 +43,11 @@ function addPersona(e){
             personas[pos].age = edad.value;
         }
     }
-
     guardar("personas", personas);
     limpiarForm();
     mostrar();
 }
+
 function limpiarForm(){
     idPersona.value = 0;
     nombre.value = '';
@@ -49,14 +55,12 @@ function limpiarForm(){
     correo.value = '';
     nacionalidad.value = '';
     edad.value = null;
-
 }
 
 function mostrar(){
     let tbody = document.querySelector("#personajes");
     tbody.innerHTML = "";
     let personas = leer("personas");
-
     personas.forEach(element => {
         tbody.innerHTML += `<tr>
         <th>${element.id}</th>
@@ -77,7 +81,6 @@ function mostrar(){
 function leerUno(id){
     let personas = leer("personas");
     let persona = personas[id - 1];
-
     idPersona.value = persona.id;
     nombre.value = persona.name;
     apellido.value = persona.lastName;
@@ -87,12 +90,28 @@ function leerUno(id){
 }
 
 function borrarPersona(id){
-    let personas = leer("personas");
-    let filtrado = personas.filter(persona => persona.id != id);
-    guardar("personas", filtrado);
-    mostrar();
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let personas = leer("personas");
+            let filtrado = personas.filter(persona => persona.id != id);
+            guardar("personas", filtrado);
+            mostrar();
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
 }
-
 mostrar();
 
 let btnAdd = document.querySelector("#registrar");
