@@ -8,9 +8,7 @@ html * {
 .main h1 {
     justify-content: center;
     font-size: bold;
-}
-.main h4{
-    font-size: bold;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .header {
     background-image: url('https://fondosmil.com/fondo/24546.jpg');
@@ -18,10 +16,13 @@ html * {
     min-height: 100vh;
     background-size: cover;
 }
-.header a {
-    background-color: rgb(227, 244, 250);
-    font-size: bold;
-    padding-right: 15px;
+.main h4{
+    font-weight: bold;
+}
+.header a{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    background-color:whitesmoke
 }
 .imagenes {
     display: grid;
@@ -43,21 +44,38 @@ html * {
 }
 .butone{
     font-size: bold;
-    padding: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 8px;
+    font-size: larger;
     background-color:azure;
+}
+.f0rm input {
+    margin: 1px;
 }
 .main {
     display: grid;
     justify-content: space-around;
 }
-#registro {
-    background-color: aqua;
-}
 .planilla{
     background-color: rgb(195, 214, 216);
 }
 .table {
-    background-color: rgb(133, 72, 3)  ;
+    background-color: rgb(133, 72, 3);
+}
+.futer {
+    display: flex;
+    justify-content: flex-start
+}
+.fter{
+    padding-top: 50px;
+    padding-left: 20px;
+}
+.futer h3 {
+    font-size: bold;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.futer a {
+    font-size: bold;
 }
 @media screen and (max-width: 1100px){
     .imagenes{
@@ -85,7 +103,6 @@ html * {
         padding: 5px;
     }
 }   
-
 @media screen and (max-width: 1880px){
     html * {margin: 0; padding: 0;}
 }
