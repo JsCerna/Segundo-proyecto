@@ -31,7 +31,15 @@ html * {
 .reg {
     display: flex;
     justify-content: center;
+    padding-bottom: 15px;
+}
+.main p{
+    display: flex;
+    justify-content: center;
     padding: 5px;
+    color: red;
+    font-size: bold;
+    background-color:beige
 }
 .butone{
     font-size: bold;

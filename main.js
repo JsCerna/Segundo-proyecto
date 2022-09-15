@@ -1,7 +1,7 @@
 function leer(key){
     return JSON.parse(window.localStorage.getItem(key)) || [];
 }
- 
+
 function guardar(key, data){
     window.localStorage.setItem(key, JSON.stringify(data));
 }
@@ -18,8 +18,8 @@ function addPersona(e){
     if(idPersona.value == 0 || idPersona.value == null){
         if(nombre.value == "" || apellido.value == "" || correo.value == "" || nacionalidad.value == "" || edad.value == "") {
             Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                '¡Alerta!',
+                'Tienes que rellenar todos los campos de manera obligatoria.',
                 'error'
               )
         } else {
@@ -91,13 +91,13 @@ function leerUno(id){
 
 function borrarPersona(id){
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: '¿Estas seguro(a)?',
+        text: "¡Estas a punto de eliminar tu perfil!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Si, eliminar.'
       }).then((result) => {
         if (result.isConfirmed) {
             let personas = leer("personas");
@@ -105,8 +105,8 @@ function borrarPersona(id){
             guardar("personas", filtrado);
             mostrar();
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
+            '¡Borrado!',
+            'El perfil a sido eliminado.',
             'success'
           )
         }
