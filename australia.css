@@ -20,7 +20,7 @@ html * {
 }
 
 .header {
-    background-image: url('/Segundo-proyecto/img/palmeras.jpg');
+    background-image: url('https://raw.githubusercontent.com/JsCerna/Segundo-proyecto/refs/heads/main/img/palmeras.jpg');
     background-repeat: no-repeat;
     min-height: 100vh;
     background-size: cover;
